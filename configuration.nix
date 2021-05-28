@@ -88,6 +88,7 @@
     fish
     yakuake
     git
+    ncdu
     hlint
     stack
     kate
