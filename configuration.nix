@@ -53,7 +53,7 @@
   services.xserver.desktopManager.plasma5.enable = true;
   
   # gnome keyring
-  services.gnome3.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "us";
