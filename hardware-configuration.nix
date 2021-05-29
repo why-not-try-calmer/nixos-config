@@ -25,7 +25,7 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-label/swap"; }
+    [ { device = "/dev/disk/by-label/swap-shared"; }
     ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
