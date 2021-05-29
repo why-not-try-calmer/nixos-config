@@ -52,6 +52,8 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   
+  # gnome keyring
+  services.gnome3.gnome-keyring.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "us";
