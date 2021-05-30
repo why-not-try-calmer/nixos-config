@@ -57,6 +57,11 @@
   services.xserver.useGlamor = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma5.runUsingSystemd = true;
+  services.xserver.displayManager.sessionPackages = [
+  (pkgs.plasma-workspace.overrideAttrs
+    (old: { passthru.providedSessions = [ "plasmawayland" ]; }))
+  ];
   
   # gnome keyring
   services.gnome.gnome-keyring.enable = true;
