@@ -24,9 +24,9 @@
       fsType = "vfat";
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-label/swap-shared"; }
-    ];
+  # swapDevices =
+  #  [ { device = "/dev/disk/by-label/swap-shared"; }
+  #  ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
