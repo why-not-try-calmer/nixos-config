@@ -15,7 +15,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = ["pci=noaer splash=silent resume=/dev/sda6 rd.driver.blacklist=nouveau modprobe.blacklist=nouveau quiet pci=noaer dis_ucode_ldr"];
+  boot.kernelParams = ["pci=noaer splash=silent resume=/dev/sda6 rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nouveau.modeset=0 quiet pci=noaer dis_ucode_ldr"];
   
   #network
   networking.hostName = "nixos"; # Define your hostname.
@@ -53,18 +53,18 @@
 
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "modesetting" ];
+  services.xserver.videoDrivers = [ "intel" ];
   services.xserver.useGlamor = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.desktopManager.plasma5.runUsingSystemd = true;
-  services.xserver.displayManager.sessionPackages = [
-  (pkgs.plasma-workspace.overrideAttrs
-    (old: { passthru.providedSessions = [ "plasmawayland" ]; }))
-  ];
+  # services.xserver.desktopManager.plasma5.runUsingSystemd = true;
+  # services.xserver.displayManager.sessionPackages = [
+  # (pkgs.plasma-workspace.overrideAttrs
+  #  (old: { passthru.providedSessions = [ "plasmawayland" ]; }))
+  # ];
   
   # gnome keyring
-  services.gnome.gnome-keyring.enable = true;
+  # services.gnome.gnome-keyring.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "us";
@@ -114,6 +114,7 @@
     kcalc
     gwenview
     okular
+    tdesktop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -151,3 +152,4 @@
   };
 
 }
+
